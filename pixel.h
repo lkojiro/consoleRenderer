@@ -1,19 +1,20 @@
-//header for pixel primitive
+//header for pixel class
+#include <cstdint>
+
 #ifndef PIXEL_H
 #define PIXEL_H
 
-typedef ColorData uint32_t;
+typedef uint32_t ColorData;
 
-// paulbourke.net/dataformats/asciiart
-const char *BRIGHTNESS = " .:-=+*#%@";
-const char *EXTENDED_BRIGHTNESS = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. ";
 class Pixel {
     uint8_t red, green, blue, alpha;
     public:
         Pixel(uint8_t, uint8_t, uint8_t, uint8_t);
-        Pixel(uint64_t);
+        Pixel(ColorData);
         Pixel();
         ColorData getColorData();
+        void setColorData(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
+        int getEscapeColor();
 };
 
 #endif
